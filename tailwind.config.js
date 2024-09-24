@@ -19,10 +19,15 @@ module.exports = {
         foreground: "var(--foreground)",
         darkBlue: "var(--darkBlue)",
         neonPink: "var(--neonPink)",
+        neonGreen: "var(--neonGreen)",
+        smokeGray: "var(--smokeGray)",
       },
       fontFamily: {
         michroma: ["var(--font-michroma)"],
       },
+      backgroundImage: {
+        'home-hero': "url('/backgrounds/space_colors_back.jpg')",
+      }
     },
   },
   plugins: [],

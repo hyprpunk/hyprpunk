@@ -7,6 +7,8 @@
   --foreground: #171717;
   --darkBlue: #0B0E1C;
   --neonPink: #d85c9f;
+  --neonGreen: #93c799;
+  --smokeGray: #22272B;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +17,8 @@
     --foreground: #ededed;
     --darkBlue: #0B0E1C;
     --neonPink: #d85c9f;
+    --neonGreen: #93c799;
+    --smokeGray: #22272B;
   }
 }
 
