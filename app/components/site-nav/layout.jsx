@@ -81,11 +81,8 @@ export default function SiteNavLayout() {
         >
           {navItems.map((item, i) => (
             <li key={i}>
-              <a
-                href={item[Object.keys(item)[0]]}
-                class="font-michroma text-sm md:text-base"
-              >
-                {Object.keys(item)[0]}
+              <a href={item.link} className="font-michroma text-sm md:text-base">
+                {item.label}
               </a>
             </li>
           ))}
