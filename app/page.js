@@ -1,5 +1,6 @@
 import ComingSoonLayout from "./components/coming-soon/layout";
 import Image from "next/image";
+import logo from '../public/logos/hp_logo_two_lines_light.png';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           {/* First Project - Image on the Left */}
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <Image
-              src="/image1.jpg"
+              src={logo}
               width={300}
               height={200}
               alt="Project 1"
@@ -28,7 +29,7 @@ export default function Home() {
           {/* Second Project - Image on the Right */}
           <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
             <Image
-              src="/image2.jpg"
+              src={logo}
               width={300}
               height={200}
               alt="Project 2"
@@ -45,7 +46,7 @@ export default function Home() {
           {/* Third Project - Image on the Left */}
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <Image
-              src="/image3.jpg"
+              src={logo}
               width={300}
               height={200}
               alt="Project 3"

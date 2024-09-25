@@ -6,9 +6,9 @@ export default function HomeHeroLayout({ children }) {
   };
 
   return (
-    <section class="h-[80vh]">
-      <div class="flex flex-col items-center justify-center h-full bg-home-hero bg-cover bg-bottom bg-no-repeat">
-        <h1 class="text-3xl font-bold text-center font-michroma tracking-wider mx-4 drop-shadow-lg">
+    <section className="h-[80vh]">
+      <div className="flex flex-col items-center justify-center h-full bg-home-hero bg-cover bg-bottom bg-no-repeat">
+        <h1 className="text-3xl font-bold text-center font-michroma tracking-wider mx-4 drop-shadow-lg">
           {textContent?.title ? textContent.title : 'Please add a title'}
         </h1>
       </div>

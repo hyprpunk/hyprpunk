@@ -23,9 +23,10 @@ const navItems = [
 ];
 
 export default function SiteNavLayout() {
-  const windowSize = window.innerWidth;
-  const [windowWidth, setWindowWidth] = useState(windowSize);
+  // const windowSize = window.innerWidth;
+  const [windowWidth, setWindowWidth] = useState(0);
   const [hiddenMenu, setHiddenMenu] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   function handleHiddenMenu() {
     setHiddenMenu(!hiddenMenu);
@@ -47,11 +48,14 @@ export default function SiteNavLayout() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWindowWidth(window.innerWidth);
-      window.addEventListener("resize", () =>
-        setWindowWidth(window.innerWidth)
-      );
+    if (typeof window !== 'undefined') {
+      setIsMounted(true);
+
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      handleResize(); 
+      window.addEventListener('resize', handleResize);
+
+      return () => window.removeEventListener('resize', handleResize);
     }
 
     return;
@@ -64,24 +68,29 @@ export default function SiteNavLayout() {
     };
   }, []);
 
+  if (!isMounted) {
+    // Don't render anything layout dependent until the component is mounted
+    return null;
+  }
+
   return (
-    <header class="h-16 bg-darkBlue">
-      <nav class="flex justify-between items-center h-full px-4 sticky top-0">
-        <div class="w-[85px] mr-8 md:w-[190px]">
+    <header className="h-16 bg-darkBlue">
+      <nav className="flex justify-between items-center h-full px-4 sticky top-0">
+        <div className="w-[85px] mr-8 md:w-[190px]">
           <Image
             src={windowWidth < 768 ? logoMob : logo}
             alt="Logo"
-            class="relative top-1 left-[-10px]"
+            className="relative top-1 left-[-10px]"
           />
         </div>
         <ol
-          class="flex gap-8"
+          className="flex gap-8"
           style={windowWidth > 768 ? { display: "flex" } : mobMenuStyles}
         >
           {navItems.map((item, i) => (
             <li key={i}>
               <a href={item[Object.keys(item)[0]]}
-                class="font-michroma text-sm md:text-base"
+                className="font-michroma text-sm md:text-base"
               >
                 {Object.keys(item)[0]}
               </a>

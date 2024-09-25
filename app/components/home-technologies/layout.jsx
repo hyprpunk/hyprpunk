@@ -67,21 +67,21 @@ export default function HomeTechnologiesLayout({ children }) {
   ];
 
   return (
-    <section class="py-28 bg-[var(--smokeGray)]">
-      <div class="max-w-3xl mx-auto mx-4">
-        <h2 class="text-2xl text-center mb-16 font-michroma tracking-wider">
+    <section className="py-28 bg-[var(--smokeGray)]">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div class="flex flex-wrap gap-8 justify-between gap-y-10">
-          {logos.map((logo) => (
-            <div class="">
+        <div className="flex flex-wrap gap-8 justify-between gap-y-10">
+          {logos.map((logo, i) => (
+            <div key={i} className="">
               {logo.src === "" ? (
                 <div>No Logo</div>
               ) : (
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  class="object-contain"
+                  className="object-contain"
                   loading="lazy"
                   width={100}
                   height={100}

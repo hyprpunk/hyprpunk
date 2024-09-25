@@ -32,17 +32,17 @@ export default function HomeServicesLayout({ children }) {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue sed nulla in finibus. Maecenas sed dolor tortor. Praesent a tempor tortor, ac commodo felis. Etiam dignissim lacus sed mauris ultricies vestibulum.";
 
   return (
-    <section class="py-28 bg-[var(--darkBlue)]">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl text-center mb-16 font-michroma tracking-wider">
+    <section className="py-28 bg-[var(--darkBlue)]">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div class="flex flex-row gap-9 mx-4 flex-wrap sm:flex-nowrap lg:flex-nowrap">
+        <div className="flex flex-row gap-9 mx-4 flex-wrap sm:flex-nowrap lg:flex-nowrap">
           {cards.map((card, index) => {
             return (
               <div
                 key={index}
-                class="bg-white p-6 rounded-lg flex flex-col gap-8 lg:w-[25%] flex-grow"
+                className="bg-white p-6 rounded-lg flex flex-col gap-8 lg:w-[25%] flex-grow"
               >
                 {card.image ? (
                   <Image
@@ -53,9 +53,9 @@ export default function HomeServicesLayout({ children }) {
                     height={200}
                   />
                 ) : (
-                  <div class="h-52 w-full bg-[var(--neonGreen)] relative bottom-3"></div>
+                  <div className="h-52 w-full bg-[var(--neonGreen)] relative bottom-3"></div>
                 )}
-                <p class="text-base text-black">
+                <p className="text-base text-black">
                   {card?.description ? card.description : loremIpsum}
                 </p>
               </div>
