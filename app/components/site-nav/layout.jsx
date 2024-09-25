@@ -23,7 +23,7 @@ const navItems = [
 ];
 
 export default function SiteNavLayout() {
-  const windowSize = window.innerWidth;
+  const windowSize = typeof window !== 'undefined' ? window.innerWidth : 0;
 
   const [windowWidth, setWindowWidth] = useState(windowSize);
   const [hiddenMenu, setHiddenMenu] = useState(true);
