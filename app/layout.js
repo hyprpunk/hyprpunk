@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Michroma } from 'next/font/google';
+import { Michroma, Roboto_Mono } from 'next/font/google';
 import "./globals.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -10,6 +10,13 @@ import SiteNavLayout from "./components/site-nav/layout";
 import HomeHeroLayout from "./components/home-hero/layout";
 import HomeServicesLayout from "./components/home-services/layout";
 import HomeTechnologiesLayout from "./components/home-technologies/layout";
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: "400",
+  variable: "--font-roboto-mono",
+});
 
 const michroma = Michroma({
   subsets: ['latin'],
@@ -31,9 +38,9 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html className="scroll-smooth" lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} ${robotoMono.variable} antialiased`}
       >
         <SiteNavLayout />
         <HomeHeroLayout />

@@ -55,24 +55,16 @@ export default function HomeTechnologiesLayout({ children }) {
     {
       alt: "Git logo",
       src: gitLogo,
-    },
-    {
-      alt: "Git logo",
-      src: '',
-    },
-    {
-      alt: "Git logo",
-      src: '',
-    },
+    }
   ];
 
   return (
-    <section className="py-28 bg-[var(--smokeGray)]">
+    <section id="technologies" className="py-28 bg-[var(--smokeGray)] animate-border border-t-2 border-b-2">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div className="flex flex-wrap gap-8 justify-between gap-y-10">
+        <div className="flex flex-wrap gap-8 justify-center gap-y-10">
           {logos.map((logo, i) => (
             <div key={i} className="">
               {logo.src === "" ? (

@@ -4,11 +4,11 @@ import logo from '../public/logos/hp_logo_two_lines_light.png';
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] text-white mx-[10%]">
+    <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] text-white mx-[10%] ">
       <main className="flex flex-col gap-16 w-full">
 
         {/* Project Sections with Alternating Image Positions */}
-        <section className="flex flex-col gap-16">
+        <section id="projects" className="flex flex-col gap-16 ">
           {/* First Project - Image on the Left */}
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <Image
@@ -62,7 +62,7 @@ export default function Home() {
         </section>
 
         {/* Let's Talk About Your Project Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+        <section id="contact" className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold">Let's Talk about Your Project</h2>
             <p className="mt-4 text-sm md:text-base">

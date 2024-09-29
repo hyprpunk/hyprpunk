@@ -9,6 +9,10 @@
   --neonPink: #d85c9f;
   --neonGreen: #93c799;
   --smokeGray: #22272B;
+  --neonDarkBlue: #1B2460;
+  --darkerPink: #D74E7C;
+  --neonBlue: #96cdd1;
+  --neonBlue: #96cdd1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +23,9 @@
     --neonPink: #d85c9f;
     --neonGreen: #93c799;
     --smokeGray: #22272B;
+    --neonDarkBlue: #1B2460;
+    --darkerPink: #D74E7C;
+    --neonBlue: #96cdd1;
   }
 }
 
@@ -31,5 +38,26 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@keyframes borderColorChange {
+  0%, 100% {
+    border-color: #d85c9f; /* pink-500 */
+  }
+  25% {
+    border-color: #96cdd1; /* red-500 */
+  }
+  50% {
+    border-color: #93c799; /* yellow-500 */
+  }
+  75% {
+    border-color: #1B2460; /* back to pink-500 */
+  }
+}
+
+@layer utilities {
+  .animate-border {
+    animation: borderColorChange 3s linear infinite;
   }
 }

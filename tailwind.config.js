@@ -21,13 +21,23 @@ module.exports = {
         neonPink: "var(--neonPink)",
         neonGreen: "var(--neonGreen)",
         smokeGray: "var(--smokeGray)",
+        neonDarkBlue: "var(--neonBlue)",
+        darkerPink: "var(--darkerPink)",
+        neonBlue: "var(--neonBlue)",
       },
       fontFamily: {
         michroma: ["var(--font-michroma)"],
+        robotoMono: ["var(--font-roboto-mono)"],
       },
       backgroundImage: {
-        'home-hero': "url('/backgrounds/space_colors_back.jpg')",
-      }
+        'home-hero': "url('/backgrounds/squared_cyber_back.png')",
+      },
+      boxShadow: {
+        'neon-pink': "0px 5px 19px 5px rgb(215,78,124,25%)",
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

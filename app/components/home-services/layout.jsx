@@ -9,22 +9,30 @@ export default function HomeServicesLayout({ children }) {
     {
       title: "Card 1",
       image: "",
-      description: "",
+      topText: "Website Development",
+      description:
+        "Custom Website Development\n\n Responsive Web Design\n\n CMS Development",
     },
     {
       title: "Card 2",
       image: "",
-      description: "",
+      topText: "Web Application Development",
+      description:
+        "Custom Web Applications\n\n API Integration\n\n Google Analytics Setup",
     },
     {
       title: "Card 3",
       image: "",
-      description: "",
+      topText: "Consulting and Strategy",
+      description:
+        "Web Strategy Consulting\n\n Conversion Rate Optimization (CRO)\n\n Search Engine Optimization (SEO)",
     },
     {
       title: "Card 4",
       image: "",
-      description: "",
+      topText: "Website Maintenance and Support",
+      description:
+        "Bug Fixes and Updates\n\n Website Backup\n\n Performance Optimization",
     },
   ];
 
@@ -32,17 +40,20 @@ export default function HomeServicesLayout({ children }) {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue sed nulla in finibus. Maecenas sed dolor tortor. Praesent a tempor tortor, ac commodo felis. Etiam dignissim lacus sed mauris ultricies vestibulum.";
 
   return (
-    <section className="py-28 bg-[var(--darkBlue)]">
+    <section
+      id="services"
+      className="py-28 bg-[var(--darkBlue)] animate-border border-t-2 "
+    >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
+        <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider px-2">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div className="flex flex-row gap-9 mx-4 flex-wrap sm:flex-nowrap lg:flex-nowrap">
+        <div className="flex flex-wrap gap-y-12 md:gap-y-12 md:gap-[3%] xl:gap-[3%] px-4 justify-evenly">
           {cards.map((card, index) => {
             return (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg flex flex-col gap-8 lg:w-[25%] flex-grow"
+                className="bg-smokeGray text-center w-full sm:w-full md:w-[47%] xl:w-[22%] relative border-2 border-white shadow-neon-pink pb-6"
               >
                 {card.image ? (
                   <Image
@@ -53,9 +64,13 @@ export default function HomeServicesLayout({ children }) {
                     height={200}
                   />
                 ) : (
-                  <div className="h-52 w-full bg-[var(--neonGreen)] relative bottom-3"></div>
+                  <div className="h-52 bg-[var(--neonGreen)] relative p-4 flex justify-center items-center mx-3.5 bottom-4 rounded-xl bg-gradient-to-b from-[var(--darkerPink)] to-[var(--neonDarkBlue)]">
+                    <h3 className="text-xl font-michroma">
+                      {card?.topText ? card.topText : "Add text here"}
+                    </h3>
+                  </div>
                 )}
-                <p className="text-base text-black">
+                <p className="text-white whitespace-pre-line font-robotoMono text-lg p-3.5">
                   {card?.description ? card.description : loremIpsum}
                 </p>
               </div>

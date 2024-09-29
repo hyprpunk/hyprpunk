@@ -12,10 +12,10 @@ const navItems = [
     Services: "#services",
   },
   {
-    Projects: "#projects",
+    Technologies: "#technologies",
   },
   {
-    "Our Team": "#team",
+    Projects: "#projects",
   },
   {
     "Contact Us": "#contact",
@@ -75,11 +75,11 @@ export default function SiteNavLayout() {
 
   return (
     <header className="h-16 bg-darkBlue">
-      <nav className="flex justify-between items-center h-full px-4 sticky top-0">
+      <nav className="flex justify-between items-center h-full px-4 sticky top-0 z-10">
         <div className="w-[85px] mr-8 md:w-[190px]">
           <Image
             src={windowWidth < 768 ? logoMob : logo}
-            alt="Logo"
+            alt="Hyprpunk Logo"
             className="relative top-1 left-[-10px]"
           />
         </div>
@@ -90,14 +90,14 @@ export default function SiteNavLayout() {
           {navItems.map((item, i) => (
             <li key={i}>
               <a href={item[Object.keys(item)[0]]}
-                className="font-michroma text-sm md:text-base"
+                className="font-michroma text-sm md:text-base hover:text-neonBlue hover:underline"
               >
                 {Object.keys(item)[0]}
               </a>
             </li>
           ))}
         </ol>
-        <div style={windowWidth > 768 ? { display: "none" } : {}}>
+        <div style={windowWidth > 768 ? { display: "none" } : {}} className="cursor-pointer">
           <FontAwesomeIcon
             icon={faBars}
             size="xl"
