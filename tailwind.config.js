@@ -28,6 +28,7 @@ module.exports = {
       fontFamily: {
         michroma: ["var(--font-michroma)"],
         robotoMono: ["var(--font-roboto-mono)"],
+        poppins: ["var(--font-poppins)"],
       },
       backgroundImage: {
         'home-hero': "url('/backgrounds/squared_cyber_back.png')",

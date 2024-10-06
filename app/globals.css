@@ -5,13 +5,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --darkBlue: #0B0E1C;
+  --darkBlue: #0b0e1c;
   --neonPink: #d85c9f;
   --neonGreen: #93c799;
-  --smokeGray: #22272B;
-  --neonDarkBlue: #1B2460;
-  --darkerPink: #D74E7C;
-  --neonBlue: #96cdd1;
+  --smokeGray: #22272b;
+  --neonDarkBlue: #1b2460;
+  --darkerPink: #d74e7c;
   --neonBlue: #96cdd1;
 }
 
@@ -19,12 +18,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --darkBlue: #0B0E1C;
+    --darkBlue: #0b0e1c;
     --neonPink: #d85c9f;
     --neonGreen: #93c799;
-    --smokeGray: #22272B;
-    --neonDarkBlue: #1B2460;
-    --darkerPink: #D74E7C;
+    --smokeGray: #22272b;
+    --neonDarkBlue: #1b2460;
+    --darkerPink: #d74e7c;
     --neonBlue: #96cdd1;
   }
 }
@@ -42,7 +41,8 @@ body {
 }
 
 @keyframes borderColorChange {
-  0%, 100% {
+  0%,
+  100% {
     border-color: #d85c9f; /* pink-500 */
   }
   25% {
@@ -52,7 +52,7 @@ body {
     border-color: #93c799; /* yellow-500 */
   }
   75% {
-    border-color: #1B2460; /* back to pink-500 */
+    border-color: #1b2460; /* back to pink-500 */
   }
 }
 
@@ -61,3 +61,116 @@ body {
     animation: borderColorChange 3s linear infinite;
   }
 }
+
+/* Spider-punk animation */
+
+.spider-glitch {
+  position: relative;
+  color: #fff;
+  font-size: 150px;
+}
+
+.spider-glitch:hover {
+  text-shadow: 0.05em 0 0 var(--darkerPink),
+    -0.025em -0.05em 0 var(--neonDarkBlue), 0.025em 0.05em 0 var(--neonGreen);
+  color: rgba(0, 194, 203, 0.2);
+}
+
+.spider-glitch.glitchy {
+  text-shadow: 0.05em 0 0 var(--darkerPink),
+    -0.025em -0.05em 0 var(--neonDarkBlue), 0.025em 0.05em 0 var(--neonGreen);
+  color: rgba(0, 194, 203, 0.2);
+}
+
+.spider-glitch:before,
+.spider-glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 31px;
+  left: 0px;
+  opacity: 0.8;
+}
+
+.spider-glitch:hover::before,
+.spider-glitch.glitchy:before {
+  animation: glitch 650ms infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-0.025em, -0.0125em);
+}
+
+.spider-glitch:hover::after,
+.spider-glitch.glitchy:after {
+  animation: glitch 375ms infinite;
+  clip-path: polygon(0 65%, 100% 20%, 100% 100%, 0 70%);
+  transform: translate(0.0125em, 0.025em);
+}
+
+@media (max-width: 980px) {
+  .spider-glitch {
+    font-size: 100px;
+  }
+  .spider-glitch:before,
+  .spider-glitch:after {
+    left: 0px;
+    top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .spider-glitch {
+    font-size: 65px;
+  }
+  .spider-glitch:before,
+  .spider-glitch:after {
+    left: 0px;
+    top: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .spider-glitch {
+    font-size: 50px;
+  }
+  .spider-glitch:before,
+  .spider-glitch:after {
+    left: 0px;
+    top: 11px;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    color: rgba(236, 34, 37, 0.2);
+    text-shadow: 0.05em 0 0 var(--darkerPink),
+      -0.025em -0.05em 0 var(--neonDarkBlue), 0.025em 0.05em 0 var(--neonGreen);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 var(--darkerPink),
+      -0.025em -0.05em 0 var(--neonDarkBlue), 0.025em 0.05em 0 var(--neonGreen);
+  }
+  15% {
+    color: var(--neonGreen);
+    text-shadow: -0.05em -0.025em 0 var(--darkerPink),
+      0.025em -0.025em 0 var(--neonDarkBlue), -0.05em -0.05em 0 var(--neonGreen);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 var(--darkerPink),
+      0.025em -0.025em 0 var(--neonDarkBlue), -0.05em -0.05em 0 var(--neonGreen);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--darkerPink),
+      -0.025em 0.05em 0 var(--neonDarkBlue), 0 -0.05em 0 var(--neonGreen);
+  }
+  99% {
+    color: var(--neonDarkBlue);
+    text-shadow: 0.025em 0.05em 0 var(--darkerPink),
+      -0.025em 0.05em 0 var(--neonDarkBlue), 0 -0.05em 0 var(--neonGreen);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 var(--darkerPink),
+      -0.025em -0.025em 0 var(--neonDarkBlue),
+      -0.025em -0.05em 0 var(--neonGreen);
+  }
+}
+
+/* End of Spider-punk animation */

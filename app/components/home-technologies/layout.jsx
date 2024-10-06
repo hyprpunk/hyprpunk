@@ -60,7 +60,7 @@ export default function HomeTechnologiesLayout({ children }) {
 
   return (
     <section id="technologies" className="py-28 bg-[var(--smokeGray)] animate-border border-t-2 border-b-2">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
