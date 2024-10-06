@@ -10,6 +10,9 @@ import SiteNavLayout from "./components/site-nav/layout";
 import HomeHeroLayout from "./components/home-hero/layout";
 import HomeServicesLayout from "./components/home-services/layout";
 import HomeTechnologiesLayout from "./components/home-technologies/layout";
+import ProjectSections from "./components/home-projects/layout";
+import ContactSection from "./components/home-contact/layout";
+import Footer from "./components/footer/layout";
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -54,7 +57,9 @@ export default function RootLayout({ children }) {
         <HomeHeroLayout />
         <HomeServicesLayout />
         <HomeTechnologiesLayout />
-        {children}
+        <ProjectSections />
+        <ContactSection />
+        <Footer />
       </body>
     </html>
   );
