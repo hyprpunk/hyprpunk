@@ -34,7 +34,7 @@ module.exports = {
         'home-hero': "url('/backgrounds/squared_cyber_back.png')",
       },
       boxShadow: {
-        'neon-pink': "0px 5px 19px 5px rgb(215,78,124,25%)",
+        'neon-pink': "0px 10px 25px 5px rgb(215,78,124,10%)",
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',

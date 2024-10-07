@@ -53,7 +53,7 @@ export default function HomeServicesLayout({ children }) {
             return (
               <div
                 key={index}
-                className="bg-smokeGray text-center w-full sm:w-full md:w-[47%] xl:w-[22%] relative border-2 border-white shadow-neon-pink pb-6"
+                className="bg-smokeGray text-center w-full sm:w-full md:w-[47%] xl:w-[22%] relative rounded-xl shadow-neon-pink pb-6"
               >
                 {card.image ? (
                   <Image
@@ -64,7 +64,7 @@ export default function HomeServicesLayout({ children }) {
                     height={200}
                   />
                 ) : (
-                  <div className="h-52 bg-[var(--neonGreen)] relative p-4 flex justify-center items-center mx-3.5 bottom-4 rounded-xl bg-gradient-to-b from-[var(--darkerPink)] to-[var(--neonDarkBlue)]">
+                  <div className="h-32 bg-[var(--neonGreen)] relative p-4 flex justify-center items-center mx-3.5 bottom-4 rounded-xl bg-gradient-to-b from-[var(--darkerPink)] to-[var(--neonDarkBlue)]">
                     <h3 className="text-xl font-michroma">
                       {card?.topText ? card.topText : "Add text here"}
                     </h3>

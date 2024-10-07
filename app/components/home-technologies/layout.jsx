@@ -73,10 +73,10 @@ export default function HomeTechnologiesLayout({ children }) {
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  className="object-contain"
+                  className="object-contain w-24"
                   loading="lazy"
-                  width={100}
-                  height={100}
+                  width={"auto"}
+                  height={"auto"}
                 />
               )}
             </div>

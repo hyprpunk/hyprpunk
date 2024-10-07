@@ -14,6 +14,7 @@ import ProjectSections from "./components/home-projects/layout";
 import ContactSection from "./components/home-contact/layout";
 import Footer from "./components/footer/layout";
 import GoogleAnalytics from './components/GoogleAnalytics';
+import JumpTopWidget from "./components/jump-top-widget/layout";
 
 
 const robotoMono = Roboto_Mono({
@@ -52,6 +53,8 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   return (
     <html className="scroll-smooth" lang="en">
+      {/* Everything here will be added to the <head> of the page */}
+      <title>HYPRPUNK</title>
       <GoogleAnalytics />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} ${robotoMono.variable} ${poppins.variable} antialiased`}
@@ -62,6 +65,7 @@ export default function RootLayout({ children }) {
         <HomeTechnologiesLayout />
         <ProjectSections />
         <ContactSection />
+        <JumpTopWidget />
         <Footer />
       </body>
     </html>
