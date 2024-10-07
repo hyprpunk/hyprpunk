@@ -13,6 +13,8 @@ import HomeTechnologiesLayout from "./components/home-technologies/layout";
 import ProjectSections from "./components/home-projects/layout";
 import ContactSection from "./components/home-contact/layout";
 import Footer from "./components/footer/layout";
+import GoogleAnalytics from './components/GoogleAnalytics';
+
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -50,6 +52,7 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   return (
     <html className="scroll-smooth" lang="en">
+      <GoogleAnalytics />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} ${robotoMono.variable} ${poppins.variable} antialiased`}
       >
