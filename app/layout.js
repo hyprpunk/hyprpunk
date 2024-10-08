@@ -13,9 +13,13 @@ import HomeTechnologiesLayout from "./components/home-technologies/layout";
 import ProjectSections from "./components/home-projects/layout";
 import ContactSection from "./components/home-contact/layout";
 import Footer from "./components/footer/layout";
-import GoogleAnalytics from './components/GoogleAnalytics';
 import JumpTopWidget from "./components/jump-top-widget/layout";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
+import favicon from "../public/favicon/favicon.ico";
+import faviconApple from "../public/favicon/apple-touch-icon.png";
+import faviconSvg from "../public/favicon/favicon.svg";
+import favicon48 from "../public/favicon/favicon-48x48.png";
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -31,10 +35,10 @@ const michroma = Michroma({
   variable: "--font-michroma",
 });
 
-const poppins = Poppins({ 
-  subsets: ['latin'], 
-  display: 'swap', 
-  weight: "700", 
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: "700",
   variable: "--font-poppins",
 });
 
@@ -50,14 +54,24 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+export const metadata = {
+  title: "HYPRPUNK",
+  description: "Revolutionize Your Online Presence with HYPRPUNK",
+}
+
 export default function RootLayout({ children }) {
   return (
     <html className="scroll-smooth" lang="en">
       {/* Everything here will be added to the <head> of the page */}
-        <title>HYPRPUNK</title>
-        <link rel="icon" href="../favicon.ico" type="image/x-icon" sizes="16x16" key="icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="../public/logos/hp_apple_touch_icon.png" />
+      <head>
         <GoogleAnalytics />
+        <link rel="icon" type="image/png" href={favicon48.src} sizes="48x48" />
+        <link rel="icon" type="image/svg+xml" href={faviconSvg.src} />
+        <link rel="shortcut icon" href={favicon.src} />
+        <link rel="apple-touch-icon" sizes="180x180" href={faviconApple.src} />
+        <meta name="apple-mobile-web-app-title" content="HyprPunk" />
+        <link rel="manifest" href="/public/favicon/site.webmanifest" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} ${robotoMono.variable} ${poppins.variable} antialiased`}
       >
