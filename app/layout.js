@@ -15,8 +15,6 @@ import ContactSection from "./components/home-contact/layout";
 import Footer from "./components/footer/layout";
 import GoogleAnalytics from './components/GoogleAnalytics';
 import JumpTopWidget from "./components/jump-top-widget/layout";
-import Head from "next/head";
-
 
 
 const robotoMono = Roboto_Mono({
@@ -56,12 +54,10 @@ export default function RootLayout({ children }) {
   return (
     <html className="scroll-smooth" lang="en">
       {/* Everything here will be added to the <head> of the page */}
-      <Head>
         <title>HYPRPUNK</title>
-        <link rel="icon" href="../public/logos/hyprPunk_Favicon.png" type="image/x-icon" sizes="16x16" key="icon" />
+        <link rel="icon" href="../favicon.ico" type="image/x-icon" sizes="16x16" key="icon" />
         <link rel="apple-touch-icon" sizes="180x180" href="../public/logos/hp_apple_touch_icon.png" />
         <GoogleAnalytics />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${michroma.variable} ${robotoMono.variable} ${poppins.variable} antialiased`}
       >
