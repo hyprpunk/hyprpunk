@@ -24,7 +24,7 @@ export default function HomeHeroLayout({ children }) {
       setTimeout(() => {
         effectText.classList.remove("glitchy");
       }, 1000);
-    }, Math.floor(Math.random() * 1000) + 19000);
+    }, Math.floor(Math.random() * 1000) + 9000);
   }
 
   useEffect(() => {
