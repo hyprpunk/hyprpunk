@@ -8,10 +8,10 @@ export default function HomeHeroLayout({ children }) {
     title: `Revolutionize Your Online Presence\n with\n`,
     effectText: (
       <span
-        data-text="HYPRPUNK"
+        data-text="HyprPunk"
         className="spider-glitch inline text-8xl font-poppins weight-bold cursor-default"
       >
-        HYPRPUNK
+        HyprPunk
       </span>
     ),
   };

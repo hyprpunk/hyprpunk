@@ -68,6 +68,7 @@ body {
   position: relative;
   color: #fff;
   font-size: 150px;
+  font-variant: small-caps;
 }
 
 .spider-glitch:hover {
