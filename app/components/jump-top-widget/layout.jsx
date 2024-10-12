@@ -30,7 +30,7 @@ export default function JumpTopWidget() {
         
 
   return (
-    <div  id="jump-top" className={`fixed animate border-2 border-neonPink bottom-32 right-4 md:right-10 animate-bounce rounded-full bg-gray-800 p-2 w-14 h-14 flex justify-center items-center scrollToTop ${isVisible ? "visible" : "invisible"}`}>
+    <div  id="jump-top" className={`fixed animate border-2 border-neonPink bottom-4 md:bottom-32 right-4 md:right-10 animate-bounce rounded-full bg-gray-800 p-2 w-14 h-14 flex justify-center items-center scrollToTop ${isVisible ? "visible" : "invisible"}`}>
       <a href="#top">
         <FontAwesomeIcon
           icon={faChevronUp}

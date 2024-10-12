@@ -64,7 +64,7 @@ export default function HomeTechnologiesLayout({ children }) {
         <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div className="flex flex-wrap gap-8 justify-center gap-y-10">
+        <div className="flex flex-wrap gap-8 justify-center gap-y-10 items-center">
           {logos.map((logo, i) => (
             <div key={i} className="">
               {logo.src === "" ? (
