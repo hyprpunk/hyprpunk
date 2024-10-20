@@ -18,9 +18,8 @@ export default function Footer() {
         <a href="/terms" className="hover:underline text-sm">Terms of Service</a>
       </div> */}
       <div className="flex flex-col text-center text-sm mt-4 md:mt-0">
-        <p>Contact us</p>
-        <p>Email</p>
-        <p>Phone Number</p>
+        <h3 className="text-2xl md:text-2xl font-bold">Contact us</h3>
+        <p><a href="mailto:hyprpunk@gmail.com">hyprpunk@gmail.com</a></p>
       </div>
     </footer>
   );

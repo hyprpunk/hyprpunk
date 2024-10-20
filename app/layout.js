@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Michroma, Roboto_Mono, Poppins } from 'next/font/google';
+import { Michroma, Roboto_Mono, Poppins } from '@next/font/google';
 import "./globals.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";

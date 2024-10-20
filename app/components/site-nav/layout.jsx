@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logos/hp_light-logo.png";
 import logoMob from "../../../public/logos/hp_logo_two_lines_light.png";
@@ -25,48 +25,43 @@ const navItems = [
 export default function SiteNavLayout() {
   // const windowSize = window.innerWidth;
   const [windowWidth, setWindowWidth] = useState(0);
-  const [hiddenMenu, setHiddenMenu] = useState(true);
+  const [hiddenMenu, setHiddenMenu] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const hiddenMenuRef = useRef(null);
+  const barsRef = useRef(null);
 
   function handleHiddenMenu() {
     setHiddenMenu(!hiddenMenu);
   }
 
-  const mobMenuStyles = {
-    position: "absolute",
-    flexDirection: "column",
-    top: "64px",
-    width: "100%",
-    left: "0rem",
-    backgroundColor: "#0B0E1C",
-    gap: "1.5rem",
-    padding: "1.5rem",
-    textAlign: "center",
-    borderBottom: "1px solid var(--neonPink)",
-    borderTop: "1px solid var(--neonPink)",
-    display: hiddenMenu ? "none" : "flex",
-  };
-
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsMounted(true);
 
       const handleResize = () => setWindowWidth(window.innerWidth);
-      handleResize(); 
-      window.addEventListener('resize', handleResize);
+      handleResize();
+      window.addEventListener("resize", handleResize);
 
-      return () => window.removeEventListener('resize', handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
 
     return;
-    () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("resize", () =>
-          setWindowWidth(window.innerWidth)
-        );
+    
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if(hiddenMenuRef.current && !hiddenMenuRef.current.contains(event.target) && barsRef.current && !barsRef.current.contains(event.target)) {
+        setHiddenMenu(false);
       }
     };
-  }, []);
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [hiddenMenuRef, barsRef]);
 
   if (!isMounted) {
     // Don't render anything layout dependent until the component is mounted
@@ -74,8 +69,8 @@ export default function SiteNavLayout() {
   }
 
   return (
-    <header className="h-16 bg-darkBlue">
-      <nav className="flex justify-between items-center h-full px-4 sticky top-0 z-10">
+    <header className="h-16 bg-darkBlue z-20 fixed w-full">
+      <nav className="flex justify-between items-center h-full px-4 top-0 z-10 relative bg-[#0B0E1C]">
         <div className="w-[85px] mr-8 md:w-[190px]">
           <Image
             src={windowWidth < 768 ? logoMob : logo}
@@ -83,13 +78,11 @@ export default function SiteNavLayout() {
             className="relative top-1 left-[-10px]"
           />
         </div>
-        <ol
-          className="flex gap-8"
-          style={windowWidth > 768 ? { display: "flex" } : mobMenuStyles}
-        >
+        <ol className="gap-8 hidden md:flex">
           {navItems.map((item, i) => (
             <li key={i}>
-              <a href={item[Object.keys(item)[0]]}
+              <a
+                href={item[Object.keys(item)[0]]}
                 className="font-michroma text-sm md:text-base hover:text-neonBlue hover:underline"
               >
                 {Object.keys(item)[0]}
@@ -97,14 +90,43 @@ export default function SiteNavLayout() {
             </li>
           ))}
         </ol>
-        <div style={windowWidth > 768 ? { display: "none" } : {}} className="cursor-pointer">
+        <div
+          style={windowWidth > 768 ? { display: "none" } : {}}
+          className="cursor-pointer"
+          ref={barsRef}
+        >
           <FontAwesomeIcon
             icon={faBars}
             size="xl"
             style={{ color: "#ffffff" }}
-            onClick={handleHiddenMenu}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleHiddenMenu();
+            }}
           />
         </div>
+      </nav>
+      <nav className="z-0 relative">
+        <ol
+          ref={hiddenMenuRef}
+          className={`${hiddenMenu ? "mobile-nav-ol" : ""} flex md:hidden absolute bg-[#0B0E1C] w-full flex-col text-center gap-6 p-6 -top-80 transition-all duration-500`}
+          style={{
+            borderBottom: "1px solid var(--neonPink)",
+            borderTop: "1px solid var(--neonPink)",
+          }}
+        >
+          {navItems.map((item, i) => (
+            <li key={i}>
+              <a
+                href={item[Object.keys(item)[0]]}
+                className="font-michroma text-sm md:text-base hover:text-neonBlue hover:underline"
+                onClick={handleHiddenMenu}
+              >
+                {Object.keys(item)[0]}
+              </a>
+            </li>
+          ))}
+        </ol>
       </nav>
     </header>
   );

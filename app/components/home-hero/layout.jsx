@@ -38,6 +38,9 @@ export default function HomeHeroLayout({ children }) {
           {textContent?.title ? textContent.title : "Please add a title"}
           {textContent?.effectText ? textContent.effectText : ""}
         </h1>
+        <div className="mt-14">
+          <a href="#contact" className="cta-btn">Request a Demo Today</a>
+        </div>
       </div>
     </section>
   );

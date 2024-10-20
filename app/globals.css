@@ -175,3 +175,22 @@ body {
 }
 
 /* End of Spider-punk animation */
+
+/* Mobile Nav Animation */
+
+.mobile-nav-ol {
+  top: 0 !important;
+}
+
+/* End of Mobile Nav Animation */
+
+
+.cta-btn{
+  border: 3px solid var(--neonPink);
+  color: #FFF;
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+  border-radius: 9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
