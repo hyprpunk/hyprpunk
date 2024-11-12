@@ -6,6 +6,7 @@ import logo from "../../../public/logos/hp_light-logo.png";
 import logoMob from "../../../public/logos/hp_logo_two_lines_light.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const navItems = [
   {
@@ -72,11 +73,13 @@ export default function SiteNavLayout() {
     <header className="h-16 bg-darkBlue z-20 fixed w-full">
       <nav className="flex justify-between items-center h-full px-4 top-0 z-10 relative bg-[#0B0E1C]">
         <div className="w-[85px] mr-8 md:w-[190px]">
-          <Image
-            src={windowWidth < 768 ? logoMob : logo}
-            alt="Hyprpunk Logo"
-            className="relative top-1 left-[-10px]"
-          />
+          <Link href="/">
+            <Image
+              src={windowWidth < 768 ? logoMob : logo}
+              alt="Hyprpunk Logo"
+              className="relative top-1 left-[-10px]"
+            />
+          </Link>
         </div>
         <ol className="gap-8 hidden md:flex">
           {navItems.map((item, i) => (

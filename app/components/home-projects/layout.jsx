@@ -45,7 +45,7 @@ export default function ProjectSections() {
               </div>
             )}
             <div className="w-full md:w-1/2 text-center md:text-left px-4">
-              <h2 className="text-xl md:text-2xl font-bold">{project.title}</h2>
+              <h2 className="text-xl md:text-2xl font-bold font-michroma mb-4 tracking-wider">{project.title}</h2>
               <p className="text-sm md:text-base">{project.description}</p>
             </div>
           </div>

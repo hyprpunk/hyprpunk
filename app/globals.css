@@ -194,3 +194,16 @@ body {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+/* Card Animation */
+
+.hs-card {
+  border: 1px solid var(--neonPink);
+  box-shadow: 0 3px 15px 2px var(--neonPink);
+  transition: all 0.2s ease-in-out;
+}
+
+.hs-card:hover {
+  background: var(--darkerPink);
+  border: 1px solid var(--darkerPink);
+}

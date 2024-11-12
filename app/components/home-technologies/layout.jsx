@@ -1,14 +1,14 @@
 import Image from "next/image";
-import jsLogo from "../../../public/tech_logos/js_logo.png";
-import reactLogo from "../../../public/tech_logos/react_logo.png";
-import htmlLogo from "../../../public/tech_logos/html_logo.png";
-import cssLogo from "../../../public/tech_logos/css_logo.png";
-import rubyLogo from "../../../public/tech_logos/ruby_logo.png";
-import pythonLogo from "../../../public/tech_logos/python_logo.png";
+import jsLogo from "../../../public/tech_logos/punk-logos/js_logo_punk.png";
+import reactLogo from "../../../public/tech_logos/punk-logos/react_logo_punk.png";
+import htmlLogo from "../../../public/tech_logos/punk-logos/html_logo_punk.png";
+import cssLogo from "../../../public/tech_logos/punk-logos/css_logo_punk.png";
+import rubyLogo from "../../../public/tech_logos/punk-logos/ruby_logo_punk.png";
+import pythonLogo from "../../../public/tech_logos/punk-logos/python_logo_punk.png";
+import postgresqlLogo from "../../../public/tech_logos/punk-logos/postgresql_logo_punk.png";
+import gitLogo from "../../../public/tech_logos/punk-logos/git_logo_punk.png";
 import wordpressLogo from "../../../public/tech_logos/wordpress_logo.png";
 import shopifyLogo from "../../../public/tech_logos/shopify_logo.png";
-import postgresqlLogo from "../../../public/tech_logos/postgresql_logo.png";
-import gitLogo from "../../../public/tech_logos/git_logo.png";
 
 export default function HomeTechnologiesLayout({ children }) {
   const textContent = {
@@ -41,14 +41,6 @@ export default function HomeTechnologiesLayout({ children }) {
       src: pythonLogo,
     },
     {
-      alt: "Wordpress logo",
-      src: wordpressLogo,
-    },
-    {
-      alt: "Shopify logo",
-      src: shopifyLogo,
-    },
-    {
       alt: "PostGreSQL logo",
       src: postgresqlLogo,
     },
@@ -64,7 +56,7 @@ export default function HomeTechnologiesLayout({ children }) {
         <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">
           {textContent?.title ? textContent.title : "Please add a title"}
         </h2>
-        <div className="flex flex-wrap gap-8 justify-center gap-y-10 items-center">
+        <div className="flex flex-wrap gap-8 justify-center gap-y-8 items-center">
           {logos.map((logo, i) => (
             <div key={i} className="">
               {logo.src === "" ? (
@@ -73,14 +65,38 @@ export default function HomeTechnologiesLayout({ children }) {
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  className="object-contain w-24"
+                  className="object-contain w-32"
                   loading="lazy"
                   width={"auto"}
                   height={"auto"}
+                  title={logo.alt}
                 />
               )}
             </div>
           ))}
+        </div>
+        <div>
+          <h3 className="text-center mt-16 mb-16 text-xl font-michroma">Including popular platforms like:</h3>
+          <div className="flex flex-wrap gap-8 justify-center gap-y-8 items-center">
+            <Image 
+              src={wordpressLogo}
+              alt="Wordpress Logo"
+              loading="lazy"
+              width={"auto"}
+              height={"auto"}
+              className="object-contain w-32"
+              title="Wordpress"
+            />
+            <Image 
+              src={shopifyLogo}
+              alt="Shopify Logo"
+              loading="lazy"
+              width={"auto"}
+              height={"auto"}
+              className="object-contain w-32"
+              title="Shopify"
+            />
+          </div>
         </div>
       </div>
     </section>

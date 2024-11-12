@@ -42,7 +42,7 @@ export default function HomeServicesLayout({ children }) {
   return (
     <section
       id="services"
-      className="py-28 bg-[var(--darkBlue)] animate-border border-t-2 "
+      className="py-28 bg-[var(--darkBlue)] animate-border border-t-2"
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider px-2">
@@ -53,7 +53,7 @@ export default function HomeServicesLayout({ children }) {
             return (
               <div
                 key={index}
-                className="bg-smokeGray text-center w-full sm:w-full md:w-[47%] xl:w-[22%] relative rounded-xl shadow-neon-pink pb-6"
+                className="hs-card text-center w-full sm:w-full md:w-[47%] xl:w-[22%] rounded-xl p-8 flex flex-col justify-between align-middle"
               >
                 {card.image ? (
                   <Image
@@ -64,13 +64,13 @@ export default function HomeServicesLayout({ children }) {
                     height={200}
                   />
                 ) : (
-                  <div className="h-32 bg-[var(--neonGreen)] relative p-4 flex justify-center items-center mx-3.5 bottom-4 rounded-xl bg-gradient-to-b from-[var(--darkerPink)] to-[var(--neonDarkBlue)]">
-                    <h3 className="text-xl font-michroma">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-michroma text-center tracking-wider">
                       {card?.topText ? card.topText : "Add text here"}
                     </h3>
                   </div>
                 )}
-                <p className="text-white whitespace-pre-line font-robotoMono text-lg p-3.5">
+                <p className="text-white whitespace-pre-line text-lg h-full text-center">
                   {card?.description ? card.description : loremIpsum}
                 </p>
               </div>
