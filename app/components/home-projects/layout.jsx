@@ -23,7 +23,8 @@ export default function ProjectSections() {
   ];
 
   return (
-    <section id="projects" className="py-28 bg-[var(--darkBlue)] animate-border border-t-2">
+    <section id="projects" className="pb-16 pt-28 md:py-28 bg-[var(--darkBlue)] animate-border border-t-2">
+      <h2 className="text-2xl text-center mb-16 font-michroma tracking-wider">From Concept To Creation</h2>
       <div className="max-w-7xl mx-auto px-4">
         {projects.map((project, index) => (
           <div
@@ -46,7 +47,7 @@ export default function ProjectSections() {
             )}
             <div className="w-full md:w-1/2 text-center md:text-left px-4">
               <h2 className="text-xl md:text-2xl font-bold font-michroma mb-4 tracking-wider">{project.title}</h2>
-              <p className="text-sm md:text-base">{project.description}</p>
+              <p className="text-base">{project.description}</p>
             </div>
           </div>
         ))}
