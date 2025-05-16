@@ -5,7 +5,7 @@ import "../../../public/backgrounds/squared_cyber_back.png";
 
 export default function HomeHeroLayout({ children }) {
   const textContent = {
-    title: `Revolutionize Your Online Presence\n with\n`,
+    title: `Building Modern Web Experiences\n`,
     effectText: (
       <span
         data-text="HyprPunk"
@@ -39,7 +39,7 @@ export default function HomeHeroLayout({ children }) {
           {textContent?.effectText ? textContent.effectText : ""}
         </h1>
         <div className="mt-14">
-          <a href="#contact" className="cta-btn">Request a Demo Today</a>
+          <a href="#contact" className="cta-btn">Get a Free Quote</a>
         </div>
       </div>
     </section>

@@ -1,11 +1,5 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import logo from "../../../public/logos/hp_light-logo.png";
 import logoMob from "../../../public/logos/hp_logo_two_lines_light.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 const navItems = [
@@ -24,113 +18,115 @@ const navItems = [
 ];
 
 export default function SiteNavLayout() {
-  // const windowSize = window.innerWidth;
-  const [windowWidth, setWindowWidth] = useState(0);
-  const [hiddenMenu, setHiddenMenu] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const hiddenMenuRef = useRef(null);
-  const barsRef = useRef(null);
-
-  function handleHiddenMenu() {
-    setHiddenMenu(!hiddenMenu);
-  }
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMounted(true);
-
-      const handleResize = () => setWindowWidth(window.innerWidth);
-      handleResize();
-      window.addEventListener("resize", handleResize);
-
-      return () => window.removeEventListener("resize", handleResize);
-    }
-
-    return;
-    
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if(hiddenMenuRef.current && !hiddenMenuRef.current.contains(event.target) && barsRef.current && !barsRef.current.contains(event.target)) {
-        setHiddenMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-  }, [hiddenMenuRef, barsRef]);
-
-  if (!isMounted) {
-    // Don't render anything layout dependent until the component is mounted
-    return null;
-  }
-
   return (
-    <header className="h-16 bg-darkBlue z-20 fixed w-full">
-      <nav className="flex justify-between items-center h-full px-4 top-0 z-10 relative bg-[#0B0E1C]">
-        <div className="w-[85px] mr-8 md:w-[190px]">
-          <Link href="/">
-            <Image
-              src={windowWidth < 768 ? logoMob : logo}
-              alt="Hyprpunk Logo"
-              className="relative top-1 left-[-10px]"
-            />
+    <header className="h-16 bg-[var(--darkBlue)] z-20 fixed w-full">
+      <div className="navbar shadow-sm desk-nav md:flex hidden justify-between">
+        <div className="flex">
+          <Link href="/" className="inline-flex items-center">
+            <img src={logo.src} className="h-12" alt="HyperPunk" />
           </Link>
         </div>
-        <ol className="gap-8 hidden md:flex">
-          {navItems.map((item, i) => (
-            <li key={i}>
-              <a
-                href={item[Object.keys(item)[0]]}
-                className="font-michroma text-sm md:text-base hover:text-neonBlue hover:underline"
-              >
-                {Object.keys(item)[0]}
-              </a>
-            </li>
-          ))}
-        </ol>
-        <div
-          style={windowWidth > 768 ? { display: "none" } : {}}
-          className="cursor-pointer"
-          ref={barsRef}
-        >
-          <FontAwesomeIcon
-            icon={faBars}
-            size="xl"
-            style={{ color: "#ffffff" }}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleHiddenMenu();
-            }}
-          />
+        <div className="flex-none">
+          <ul className="menu menu-horizontal px-1">
+            {navItems.map((item, index) => {
+              const [key] = Object.keys(item);
+              return (
+                <li key={index}>
+                  <a href={item[key]} className="text-sm font-michroma">
+                    {key}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      </nav>
-      <nav className="z-0 relative">
-        <ol
-          ref={hiddenMenuRef}
-          className={`${hiddenMenu ? "mobile-nav-ol" : ""} flex md:hidden absolute bg-[#0B0E1C] w-full flex-col text-center gap-6 p-6 -top-80 transition-all duration-500`}
-          style={{
-            borderBottom: "1px solid var(--neonPink)",
-            borderTop: "1px solid var(--neonPink)",
-          }}
-        >
-          {navItems.map((item, i) => (
-            <li key={i}>
-              <a
-                href={item[Object.keys(item)[0]]}
-                className="font-michroma text-sm md:text-base hover:text-neonBlue hover:underline"
-                onClick={handleHiddenMenu}
+      </div>
+      <div className="navbar shadow-sm mobile-nav md:hidden">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                {Object.keys(item)[0]}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />{" "}
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-[var(--darkBlue)] z-1 mt-3 w-52 p-2 shadow -left-2"
+            >
+              {navItems.map((item, index) => {
+                const [key] = Object.keys(item);
+                return (
+                  <li key={index} className="mb-2">
+                    <a href={item[key]} className="font-michroma">
+                      {key}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="navbar-center">
+          <a className="btn btn-ghost text-xl">
+            <img src={logo.src} className="h-12" alt="" />
+          </a>
+        </div>
+        <div className="navbar-end hidd">
+          <button className="btn btn-ghost btn-circle hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {" "}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />{" "}
+            </svg>
+          </button>
+          <button className="btn btn-ghost btn-circle hidden">
+            <div className="indicator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />{" "}
+              </svg>
+              <span className="badge badge-xs badge-primary indicator-item"></span>
+            </div>
+          </button>
+        </div>
+      </div>
     </header>
   );
 }
